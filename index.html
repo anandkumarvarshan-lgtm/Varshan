@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varshan Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
+
+body{
+background:linear-gradient(
+135deg,
+#0f172a,
+#111827,
+#1e293b
+);
+color:white;
+overflow-x:hidden;
+ width:100%;
+}
+
+/* Animated Background */
+
+body::before{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:#00d4ff;
+filter:blur(180px);
+opacity:.15;
+top:-100px;
+left:-100px;
+z-index:-1;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:#8b5cf6;
+filter:blur(180px);
+opacity:.15;
+bottom:-100px;
+right:-100px;
+z-index:-1;
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:sticky;
+top:0;
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.05);
+border-bottom:1px solid rgba(255,255,255,0.1);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#00b3ff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav ul a:hover{
+color:#00d4ff;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+animation:fadeUp 1.2s ease;
+}
+
+.hero h4{
+color:#00d4ff;
+margin-bottom:10px;
+}
+
+.hero h1{
+font-size:70px;
+margin-bottom:10px;
+}
+
+.hero h3{
+font-weight:400;
+color:#cbd5e1;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+line-height:1.8;
+margin:auto;
+color:#94a3b8;
+}
+
+.btn-group{
+margin-top:30px;
+}
+
+.btn{
+padding:14px 28px;
+display:inline-block;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.primary{
+background:#00d4ff;
+color:black;
+}
+
+.primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px #00d4ff;
+}
+
+.secondary{
+border:2px solid #00d4ff;
+color:#00d4ff;
+}
+
+.secondary:hover{
+background:#00d4ff;
+color:black;
+}
+
+/* Sections */
+
+section{
+padding:100px 8%;
+}
+
+.title{
+text-align:center;
+font-size:45px;
+margin-bottom:60px;
+}
+
+/* Glass Card */
+
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:25px;
+}
+
+/* About */
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about-img img{
+width:100%;
+border-radius:25px;
+}
+
+.about-text{
+padding:30px;
+}
+
+.about-text p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.stats{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.stat{
+padding:20px;
+text-align:center;
+}
+
+.stat h2{
+color:#00d4ff;
+}
+
+/* Services */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+padding:35px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#00d4ff;
+}
+
+/* Tools */
+
+.tools{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.tool-card{
+padding:30px;
+text-align:center;
+transition:.4s;
+}
+
+.tool-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(0,212,255,.3);
+}
+
+.tool-card img{
+width:80px;
+height:80px;
+object-fit:contain;
+margin-bottom:20px;
+}
+
+.tool-card h3{
+color:#00d4ff;
+margin-bottom:10px;
+}
+
+.tool-card p{
+color:#cbd5e1;
+}
+
+/* Experience */
+
+.experience{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.exp-card{
+padding:30px;
+transition:.4s;
+}
+
+.exp-card:hover{
+transform:translateY(-10px);
+}
+
+.exp-card h3{
+color:#00d4ff;
+margin-bottom:10px;
+}
+
+.exp-card span{
+color:#94a3b8;
+font-size:14px;
+}
+
+
+/* Clients */
+
+.clients{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.client-card{
+padding:30px;
+text-align:center;
+transition:.4s;
+}
+
+.client-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,212,255,.3);
+}
+
+.client-card img{
+width:200px;
+height:200px;
+object-fit:contain;
+background:white;
+padding:10px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.client-card h3{
+color:#00d4ff;
+font-size:20px;
+}
+
+/* Works */
+.works{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.work{
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.work:hover{
+    transform:translateY(-8px);
+}
+
+.works{
+    display:flex;
+    overflow-x:auto;
+    gap:18px;
+    scroll-snap-type:x mandatory;
+    padding-bottom:10px;
+    -webkit-overflow-scrolling:touch;
+}
+
+.works::-webkit-scrollbar{
+    display:none;
+}
+
+.work{
+    min-width:230px;
+    max-width:230px;
+    flex-shrink:0;
+    scroll-snap-align:start;
+}
+
+.work video{
+    aspect-ratio:9/16;
+}
+
+.work video{
+    width:100%;
+    aspect-ratio:9/16;
+    object-fit:cover;
+    display:block;
+    border-radius:20px 20px 0 0;
+}
+
+
+/* Team Section */
+
+.team{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.team-card{
+width:320px;
+padding:25px;
+text-align:center;
+transition:.4s;
+}
+
+.team-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 25px rgba(0,212,255,.35);
+}
+
+.team-card img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #00d4ff;
+margin-bottom:20px;
+}
+
+.team-card h3{
+font-size:26px;
+margin-bottom:8px;
+}
+
+.team-card p{
+color:#00d4ff;
+font-size:18px;
+font-weight:600;
+}
+
+@media(max-width:768px){
+
+.team{
+flex-direction:column;
+align-items:center;
+}
+
+.team-card{
+width:90%;
+}
+
+}
+
+/* Contact */
+.contact-profile{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #00d4ff;
+    margin:0 auto 20px;
+    display:block;
+    transition:.4s;
+}
+
+.contact-profile:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #00d4ff;
+}
+
+
+
+form{
+max-width:700px;
+margin:auto;
+}
+
+input,
+textarea{
+width:100%;
+padding:15px;
+margin:12px 0;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:15px;
+color:white;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#00d4ff;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+padding:30px;
+text-align:center;
+color:#94a3b8;
+}
+
+/* Animation */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:45px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">Nova Visual Media</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#works">Works</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h4>AVAILABLE FOR WORK</h4>
+
+<h1>Varshan</h1>
+
+<h3>Visual Creator & Social Media Manager</h3>
+
+<p>
+Making brands unmissable through powerful visuals,
+video storytelling and strategic social media growth.
+</p>
+
+<div class="btn-group">
+<a href="#works" class="btn primary">View Works</a>
+<a href="#contact" class="btn secondary">Hire Me</a>
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">About Me</h2>
+
+<div class="about">
+
+<div class="about-img">
+<img src="IMG_0464.JPG.jpeg">
+</div>
+
+<div class="about-text glass">
+
+<p>
+Founder of Nova Visual Media. Experienced video editor,
+videographer and social media manager helping brands
+create impactful digital content.
+</p>
+<p>Working as freelance videography and videoeditor in Digitalix Branding Company</p>
+
+<div class="stats">
+
+<div class="stat glass">
+<h2>2+</h2>
+<p>Years</p>
+</div>
+
+<div class="stat glass">
+<h2>8+</h2>
+<p>Projects</p>
+</div>
+
+<div class="stat glass">
+<h2>3+</h2>
+<p>Clients</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="title">Services</h2>
+
+<div class="services">
+
+<div class="card glass">
+<h3>Video Editing</h3>
+<p>Professional editing for social media and YouTube.</p>
+</div>
+
+<div class="card glass">
+<h3>Videography</h3>
+<p>High-quality visual storytelling and shoots.</p>
+</div>
+
+<div class="card glass">
+<h3>Social Media Management</h3>
+<p>Content planning and audience growth strategy.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="tools">
+
+<h2 class="title">Tools I Use</h2>
+
+<div class="tools">
+
+<div class="tool-card glass">
+<h3>🎬 Adobe Premiere Pro</h3>
+<p>Professional Video Editing</p>
+</div>
+
+<div class="tool-card glass">
+<h3>✂️ CapCut</h3>
+<p>Short-form Video Editing</p>
+</div>
+
+<div class="tool-card glass">
+<h3>🎨 DaVinci Resolve</h3>
+<p>Color Grading & Video Editing</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 class="title">Experience</h2>
+
+<div class="experience">
+
+<div class="exp-card glass">
+<h3>Founder - Nova Visual Media</h3>
+<span>2024 - Present</span>
+<p>
+Managing video editing, videography and social media
+projects for businesses and personal brands.
+</p>
+</div>
+
+<div class="exp-card glass">
+<h3>Freelance Video Editor</h3>
+<span>2024 - Present</span>
+<p>
+Edited reels, YouTube videos, promotional videos and
+event highlights for multiple clients.
+</p>
+</div>
+
+<div class="exp-card glass">
+<h3>Social Media Manager</h3>
+<span>2025 - Present</span>
+<p>
+Handled Instagram content strategy, audience growth
+and branding for different businesses.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="clients">
+
+    <h2 class="title">Trusted By</h2>
+
+    <div class="clients">
+
+        <div class="client-card glass">
+            <img src="sri sai gaming.png" alt="Client 1">
+            <h3>Sai Sri Gaming</h3>
+        </div>
+
+        <div class="client-card glass">
+            <img src="Dream bigger.jpeg" alt="Client 2">
+            <h3>Dream it bigger</h3>
+        </div>
+
+        <div class="client-card glass">
+            <img src="Akshabi homes.png" alt="Client 3">
+            <h3>Akshabi homes</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="works">
+
+<h2 class="title">My Works</h2>
+
+<div class="works">
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="The Massive Event Of Badminton S5 Tournament _WINFORALL Collecting the Memories of Smashing Rackets _ Wining Moments _ Battles_._._._._._._._._._.__Badminto(.mp4" type="video/mp4">
+</video>
+<h3>Sports Event</h3>
+</div>
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="Function Frames 🖼👧💗_._._._._._._._._.___functionframes _videography _earpiececeremony _hometown _familyfunction(MP4).mp4">
+</video>
+<h3>Function Edition</h3>
+</div>
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="Video-449.mp4">
+</video>
+<h3>Corporate Edition</h3>
+</div>
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="AURA_Prints_&_Gifts_logo_202606241525 (1).mp4">
+</video>
+<h3>AI Edition</h3>
+</div>
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="Where tradition meets college vibes – Pongal celebrations in full swing🌾✨_._._._._._._._.__fyp _trending _viral _dance _pongal(MP4).mp4">
+</video>
+<h3>Celebrations Edition</h3>
+</div>
+
+
+
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="Part 1❤️__KARIKALAN ✖️ AK HOLIDAYS ✖️ PETTAKARAN __✌🏻Day God_s Own Country MUNNAR - KANTHALLOOR COMPLETED SUCCESSFULLY 🫶🏻✨💞__Wi_1.mp4">
+</video>
+<h3>Travel Edition</h3>
+</div>
+
+<div class="work glass">
+<video controls autoplay muted loop width="100%">
+    <source src="Brands edition.mp4">
+</video>
+<h3>Brands Edition</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="team">
+
+<h2 class="title">Our Team</h2>
+
+<div class="team">
+
+<div class="team-card glass">
+
+<img src="1000077775 (2).jpeg" alt="Director">
+
+<h3>Dharun</h3>
+
+<p>Media Director Of Tagore Engineering College</p>
+
+</div>
+
+<div class="team-card glass">
+
+<img src="IMG_3966.JPG.jpeg" alt="Co Director">
+
+<h3>Varshan</h3>
+
+<p>Assistant Media Director Of Tagore Engineering College </p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact Us</h2>
+
+<div class="services">
+
+    <div class="card glass">
+
+        <img src="IMG_0783.jpeg" alt="Dharun" class="contact-profile">
+
+        <h3>👤 Dharun</h3>
+        <p><strong>Director</strong></p>
+        <p>📞 +91 93858 17747</p>
+        <p>📧 dharunsamynathan@gmail.com</p>
+        <p>📷 _fasciverse_  OR  novavisualmedia</p>
+
+    </div>
+
+    <div class="card glass">
+
+        <img src="IMG_0464.JPG.jpeg" alt="Varshan" class="contact-profile" >
+
+        <h3>👤 Varshan</h3>
+        <p><strong>Co-Director</strong></p>
+        <p>📞 +91 74490 52308</p>
+        <p>📧 anandkumarvarshan@gmail.com</p>
+        <p>📷 Chifuyu_x20</p>
+
+    </div>
+
+</div>
+
+</section>
+<footer>
+© 2026 Varshan Portfolio | All Rights Reserved
+</footer>
+
+</body>
+</html>
